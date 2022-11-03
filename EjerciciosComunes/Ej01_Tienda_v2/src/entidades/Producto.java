@@ -20,21 +20,25 @@ package entidades;
  *
  * @author FT
  */
-public class Fabricante {
+public class Producto {
 
-//ATTR:
+    //ATTR:
     private int codigo;
     private String nombre;
+    private double precio;
+    private int codigoFabricante;
 
-//CONSTR:
-    public Fabricante() {
+    //CONSTR:
+    public Producto() {
     }
-    public Fabricante(int codigo, String nombre) {
+    public Producto(int codigo, String nombre, double precio, int codigoFabricante) {
         this.codigo = codigo;
         this.nombre = nombre;
+        this.precio = precio;
+        this.codigoFabricante = codigoFabricante;
     }
 
-//GyS:
+    //GyS:
     public int getCodigo() {
         return codigo;
     }
@@ -46,5 +50,23 @@ public class Fabricante {
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    public double getPrecio() {
+        return precio;
+    }
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+    public int getCodigoFabricante() {
+        return codigoFabricante;
+    }
+    public void setCodigoFabricante(int codigoFabricante) {
+        this.codigoFabricante = codigoFabricante;
+    }
+
+    //TOSTRING:
+    @Override
+    public String toString() {
+        return "| Producto: " + " | Código: " + codigo + " | Nombre: " + nombre + " | Precio: " + precio + " | Codigo Fabricante: " + codigoFabricante;
     }
 }

@@ -101,10 +101,10 @@ public class FabricanteDAO extends DAO {
 
             consultarBase(query);                                               //  Llamar al método heredado desde DAO con el String creado como parámetro.-
 
-            Fabricante objetofabricante = null;                                 // DECLARO un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
+            Fabricante objetofabricante = null;                                 //  DECLARO un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
 
             //  Recorre el OBJETO con un bucle WHILE utilizando el atributo RESULTADO de la calse DAO.-
-            while (resultado.next()) {                                          //RESULTADO.NEXT porque SQL siempre empieza de 1.-
+            while (resultado.next()) {                                          //  RESULTADO.NEXT porque SQL siempre empieza de 1.-
 
                 objetofabricante = new Fabricante();                            //  Instancio el OBJETO.-
 
@@ -141,10 +141,10 @@ public class FabricanteDAO extends DAO {
 
             consultarBase(query);                                               //  Llamar al método heredado desde DAO con el String creado como parámetro.-
 
-            Fabricante objetofabricante = null;                                 // DECLARO un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
+            Fabricante objetofabricante = null;                                 //  DECLARO un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
 
             //  Recorre el OBJETO con un bucle WHILE utilizando el atributo RESULTADO de la calse DAO.-
-            while (resultado.next()) {                                          //RESULTADO.NEXT porque SQL siempre empieza de 1.-
+            while (resultado.next()) {                                          //  RESULTADO.NEXT porque SQL siempre empieza de 1.-
 
                 objetofabricante = new Fabricante();                            //  Instancio el OBJETO.-
 
@@ -211,10 +211,10 @@ public class FabricanteDAO extends DAO {
 
             ArrayList<Fabricante> ListaFabricantes = new ArrayList();           //  Crear un ARRAYLIST para contener el RESULTADO del RESULTSET.-
 
-            Fabricante objetofabricante = null;                                 // DECLARO un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
+            Fabricante objetofabricante = null;                                 //  DECLARO un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
 
             //  Recorre el OBJETO con un bucle WHILE utilizando el atributo RESULTADO de la calse DAO.-
-            while (resultado.next()) {                                          //RESULTADO.NEXT porque SQL siempre empieza de 1.-
+            while (resultado.next()) {                                          //  RESULTADO.NEXT porque SQL siempre empieza de 1.-
 
                 objetofabricante = new Fabricante();                            //  Instancio el OBJETO.-
 

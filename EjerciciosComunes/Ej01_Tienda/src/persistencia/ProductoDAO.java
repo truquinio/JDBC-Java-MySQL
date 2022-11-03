@@ -46,7 +46,7 @@ public class ProductoDAO extends DAO {
             String query = "INSERT INTO producto (nombre, precio, codigo_fabricante) VALUES ( '"
                     + prod.getNombre() + "' , '" 
                     + prod.getPrecio() + "' , '" 
-                    + prod.getFabricante().getCodigo() + "' );";         //  CÓDIGO_FABRICANTE es un objeto FABRICANTE, por eso debo poner GET.CODIGO al final, para que sea de PRODUCTO.-
+                    + prod.getFabricante().getCodigo() + "' );";                //  CÓDIGO_FABRICANTE es un objeto FABRICANTE, por eso debo poner GET.CODIGO al final, para que sea de PRODUCTO.-
                     //  Un ; es para cerrar la consulta SQL y el otro ; es para cerrar la línea de Java.-
 
             insertarModificarEliminar(query);                                   //  Llamar al método heredado desde DAO.-
@@ -120,7 +120,7 @@ public class ProductoDAO extends DAO {
 
             consultarBase(query);                                               //  Llamar al método heredado desde DAO con el String creado como parámetro.-
 
-            Producto objetoProducto = null;                                     // DECLARO OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
+            Producto objetoProducto = null;                                     //  DECLARO OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
             Fabricante objetoFabricante = null;
             
             //  Recorre el OBJETO con un bucle WHILE utilizando el atributo RESULTADO de la calse DAO.-
@@ -171,12 +171,12 @@ public class ProductoDAO extends DAO {
 
             consultarBase(query);                                               //  Llamar al método heredado desde DAO con el String creado como parámetro.-
 
-            Producto objetoprodicante = null;                                 // DECLARA un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
+            Producto objetoprodicante = null;                                   //  DECLARA un OBJETO como NULO por si está lleno y fuera del WHILE para que no desaparezca al finalizar el bucle.-
 
             //  Recorre el OBJETO con un bucle WHILE utilizando el atributo RESULTADO de la calse DAO.-
-            while (resultado.next()) {                                          //RESULTADO.NEXT porque SQL siempre empieza de 1.-
+            while (resultado.next()) {                                          //  RESULTADO.NEXT porque SQL siempre empieza de 1.-
 
-                objetoprodicante = new Producto();                            //  Instancio el OBJETO.-
+                objetoprodicante = new Producto();                              //  Instancio el OBJETO.-
 
                 objetoprodicante.setCodigo(resultado.getInt(1));                //  SETEO código desde RESULTADO y le digo que sea la COLUMNA 1 porque SQL empieza desde el 1 y no desde 0.-
                 objetoprodicante.setNombre(resultado.getString(2));             //  SETEO nombre desde RESULTADO y le digo que sea la COLUMNA 2 porque SQL empieza desde el 1 y no desde 0.-

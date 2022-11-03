@@ -22,11 +22,11 @@ package entidades;
  */
 public class Fabricante {
 
-//ATTR:
+    //ATTR:
     private int codigo;
     private String nombre;
 
-//CONSTR:
+    //CONSTR:
     public Fabricante() {
     }
     public Fabricante(int codigo, String nombre) {
@@ -34,7 +34,7 @@ public class Fabricante {
         this.nombre = nombre;
     }
 
-//GyS:
+    //GyS:
     public int getCodigo() {
         return codigo;
     }
@@ -46,5 +46,11 @@ public class Fabricante {
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    //TOSTRING:
+    @Override
+    public String toString() {
+        return "| Fabricante: " + " | Código: " + codigo + " | Nombre: " + nombre;
     }
 }

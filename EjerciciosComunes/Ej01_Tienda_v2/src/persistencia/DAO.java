@@ -3,18 +3,38 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servicio;
+package persistencia;
 
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import persistencia.DAO;
+import java.sql.Statement;
 
 /**
  *
  * @author FT
  */
-public class ServicioDAO extends DAO{
+public class DAO {
     
+    protected Connection conexion;
+    protected ResultSet resultado;
+    protected Statement sentencia;
+    private final String USER = "root";
+    private final String PASSWORD = "root";
+    private final String DATABASE = "tienda";
+    private final String DRIVER = "com.mysql.jdbc.Driver";
+
+    protected void conectarBase() throws Exception {
+        try {
+            Class.forName(DRIVER);
+            String urlBaseDeDatos = "jdbc:mysql://localhost:3306/" + DATABASE + "?useSSL=false";
+            conexion = DriverManager.getConnection(urlBaseDeDatos, USER, PASSWORD);
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw ex;
+        }
+    }
+
     protected void desconectarBase() throws Exception {
         try {
             if (resultado != null) {
@@ -31,15 +51,13 @@ public class ServicioDAO extends DAO{
         }
     }
 
-    protected void insertarModificarEliminar(String query) throws Exception {
+    protected void insertarModificarEliminar(String sql) throws Exception {
         try {
             conectarBase();
-            sentencia = (Statement) conexion.createStatement();
-            sentencia.executeUpdate(query);
+            sentencia = conexion.createStatement();
+            sentencia.executeUpdate(sql);
         } catch (SQLException ex) {
-            
-            //  En caso de que el QUERY tenga un error, hacemos un ROLLBACK.-
-            conexion.rollback();
+            // conexion.rollback();
             /*  Descomentar la linea anterior si desean tener en cuenta el rollback.
                 Correr el siguiente script en Workbench
             
@@ -47,7 +65,7 @@ public class ServicioDAO extends DAO{
                 COMMIT;
             
                 **Sin rollback igual anda */
-
+             
             throw ex;
         } finally {
             desconectarBase();
@@ -57,7 +75,7 @@ public class ServicioDAO extends DAO{
     protected void consultarBase(String sql) throws Exception {
         try {
             conectarBase();
-            sentencia = (Statement) conexion.createStatement();
+            sentencia = conexion.createStatement();
             resultado = sentencia.executeQuery(sql);
         } catch (Exception ex) {
             throw ex;
